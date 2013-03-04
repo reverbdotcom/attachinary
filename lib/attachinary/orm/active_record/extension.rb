@@ -14,15 +14,16 @@ module Attachinary
           as: :attachinariable,
           class_name: '::Attachinary::File',
           conditions: { scope: options[:scope].to_s },
-          dependent: :destroy
+          dependent: :destroy,
+          order: options[:order]
       else
         has_many :"#{relation}",
-          -> { where scope: options[:scope].to_s }, 
+          -> { where scope: options[:scope].to_s },
           as: :attachinariable,
           class_name: '::Attachinary::File',
-          dependent: :destroy
+          dependent: :destroy,
+          order: options[:order]
       end
-
 
       # def photo=(file)
       #   input = Attachinary::Utils.process_input(input, upload_options)
