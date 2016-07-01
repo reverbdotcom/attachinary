@@ -21,8 +21,7 @@ module Attachinary
           -> { where(scope: options[:scope].to_s).order('position ASC') },
           as: :attachinariable,
           class_name: '::Attachinary::File',
-          dependent: :destroy,
-          order: options[:order]
+          dependent: :destroy
       end
 
       # def photo=(file)
