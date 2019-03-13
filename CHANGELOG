@@ -1,3 +1,6 @@
+= Version 1.3.0.6
+ * Fixes rails strong params issues with unpermitted parameters
+
 = Version 1.3.0
   * Added support for Rails 4 (thanks @rochers)
   * Use resource type when building cloudinary urls
