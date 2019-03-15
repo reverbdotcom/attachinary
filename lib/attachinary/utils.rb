@@ -25,7 +25,9 @@ module Attachinary
       if Rails::VERSION::MAJOR == 3
         Attachinary::File.new hash.slice(*Attachinary::File.attr_accessible[:default].to_a)
       else
-        ActionController::Parameters.new(hash).permit(
+        # permit_without_raise is a monkeypatch found in reverb/lib/monkeypatches/action_controller.rb
+        # It has the same behavior as ActionController::Parameters#permit except that it does not rais or log ActionController::UnpermittedParameters
+        ActionController::Parameters.new(hash).permit_without_raise(
           :public_id,
           :version,
           :width,
