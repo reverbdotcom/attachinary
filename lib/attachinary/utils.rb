@@ -12,7 +12,7 @@ module Attachinary
 
       if hash['id']
         Attachinary::File.find(hash['id']).tap do |file|
-          file.update_attributes(permitted_params)
+          file.update(permitted_params)
         end
       else
         Attachinary::File.new(permitted_params).tap do |file|
@@ -36,7 +36,7 @@ module Attachinary
           :bytes,
           :original_filename,
           transformation: [:width, :height, :x, :y, :crop, :angle]
-        ).symbolize_keys.select do |field, val|
+        ).to_hash.symbolize_keys.select do |field, val|
           Attachinary::File.column_names.map(&:to_sym).include?(field)
         end
       end

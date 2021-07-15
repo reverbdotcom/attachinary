@@ -27,7 +27,7 @@ class NotesController < ApplicationController
 
   def update
     @note = Note.find params[:id]
-    if @note.update_attributes(note_params)
+    if @note.update(note_params)
       redirect_to notes_url
     else
       render 'edit'
@@ -47,7 +47,7 @@ class NotesController < ApplicationController
       params[:note].slice(:body, :photo)
     else
       params.require(:note).permit(
-          :body, 
+          :body,
           :photo,
       )
     end
