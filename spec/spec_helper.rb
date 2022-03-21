@@ -16,8 +16,8 @@ require 'factories'
 
 require 'database_cleaner'
 
-require "capybara/webkit"
-Capybara.javascript_driver = :webkit
+require "capybara/apparition"
+Capybara.javascript_driver = :apparition
 
 
 ENGINE_RAILS_ROOT = File.join(File.dirname(__FILE__), '../')
@@ -26,10 +26,7 @@ ENGINE_RAILS_ROOT = File.join(File.dirname(__FILE__), '../')
 # in spec/support/ and its subdirectories.
 Dir[File.join(ENGINE_RAILS_ROOT, "spec/support/**/*.rb")].each {|f| require f }
 
-
-
 RSpec.configure do |config|
-  config.color_enabled = true
   config.treat_symbols_as_metadata_keys_with_true_values = true
   config.filter_run focus: true
   config.run_all_when_everything_filtered = true

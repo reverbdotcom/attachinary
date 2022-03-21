@@ -9,5 +9,5 @@ class Note
   validates :body, presence: true, length: { minimum: 5, maximum: 128 }
   validates :photo, presence: true
 
-  attr_accessible :body
+  attr_accessor :body
 end

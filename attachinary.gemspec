@@ -24,14 +24,14 @@ Gem::Specification.new do |s|
   s.files = Dir["{app,config,db,lib,vendor}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.md"]
   s.test_files = Dir["test/**/*"]
 
-  s.add_dependency 'rails', '>= 3.2'
-  s.add_dependency 'cloudinary', '~> 1.1.1'
+  s.add_dependency 'rails', '>= 6'
+  s.add_dependency 'cloudinary', '~> 1'
 
-  s.add_development_dependency 'sqlite3'
-  s.add_development_dependency 'rspec-rails', '~> 2'
-  s.add_development_dependency 'valid_attribute'
   s.add_development_dependency 'capybara'
-  s.add_development_dependency 'capybara-webkit'
+  s.add_development_dependency 'apparition'
+  s.add_development_dependency 'sqlite3'
+  s.add_development_dependency 'rspec-rails', '~> 3'
+  s.add_development_dependency 'valid_attribute'
   s.add_development_dependency 'factory_girl_rails'
   s.add_development_dependency 'launchy'
   s.add_development_dependency 'database_cleaner'

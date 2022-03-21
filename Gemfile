@@ -7,7 +7,7 @@ gemspec
 
 # used by the dummy application
 gem 'jquery-rails'
-gem 'cloudinary', '1.1.1'
+gem 'cloudinary'
 gem 'simple_form'
 
 group :assets do
