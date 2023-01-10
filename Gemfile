@@ -7,7 +7,7 @@ gemspec
 
 # used by the dummy application
 gem 'jquery-rails'
-gem 'cloudinary', '1.1.1'
+gem 'cloudinary', '1.22.0' # same version used in reverb core
 gem 'simple_form'
 
 group :assets do
@@ -16,6 +16,13 @@ end
 
 group :mongoid do
   gem 'mongoid'
+end
+
+group :test do
+  # headless chrome without selenium
+  # Using a ref until a new gem version is available due to this issue: https://github.com/twalpole/apparition/issues/81
+  # Same version used in reverb core
+  gem "apparition", git: 'https://github.com/twalpole/apparition', ref: 'ca86be4d54af835d531dbcd2b86e7b2c77f85f34'
 end
 
 

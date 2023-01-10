@@ -16,9 +16,15 @@ module Attachinary
           conditions: { scope: options[:scope].to_s },
           dependent: :destroy,
           order: 'position ASC'
-      else
+      elsif Rails::VERSION::MAJOR < 6
         has_many :"#{relation}",
           -> { where(scope: options[:scope].to_s).order('position ASC NULLS FIRST, created_at ASC, id ASC') },
+          as: :attachinariable,
+          class_name: '::Attachinary::File',
+          dependent: :destroy
+      else
+        has_many :"#{relation}",
+          -> { where(scope: options[:scope].to_s).order(Arel.sql('position ASC NULLS FIRST, created_at ASC, id ASC')) },
           as: :attachinariable,
           class_name: '::Attachinary::File',
           dependent: :destroy
