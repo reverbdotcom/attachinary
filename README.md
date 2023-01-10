@@ -188,6 +188,12 @@ If you don't want fancy JS features, all you have to do is just switch to `:inpu
 Attachinary jquery plugin uses JSON2 to generate JSON data.
 This works for all major browsers, but if you wish to support older ones (e.g. IE7-), include [json2.js](https://github.com/douglascrockford/JSON-js/blob/master/json2.js).
 
+## Development / Testing
+
+1. `bundle install`
+1. Copy the cloudinary config for the dummy app: `cp spec/dummy/config/cloudinary.yml.example spec/dummy/config/cloudinary.yml`
+1. Edit the entries for `cloud_name`, `api_key`, and `api_secret` in `cloudinary.yml`. Values for these fields can be copied from Reverb core's `cloudinary.yml` and related env vars.
+1. `bundle exec rake spec`
 
 ## Credits and License
 

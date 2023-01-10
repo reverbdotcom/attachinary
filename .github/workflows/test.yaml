@@ -1,0 +1,27 @@
+name: Ruby
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 2.7
+    - name: Build and test with Rake
+      run: |
+        gem install bundler
+        bundle install --jobs 4 --retry 3
+        cp spec/dummy/config/cloudinary.yml.example spec/dummy/config/cloudinary.yml
+        bundle exec rake spec
+        gem build attachinary.gemspec
+    - name: Publish gem to Github Packages
+      if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+      run: |
+        echo -e "---\n:github: Bearer ${{ secrets.GITHUB_TOKEN }}" > ~/.gem/credentials
+        chmod 0600 ~/.gem/credentials
+        bundle config https://rubygems.pkg.github.com/reverbdotcom :${{ secrets.GITHUB_TOKEN }}
+        gem push --key github --host https://rubygems.pkg.github.com/reverbdotcom attachinary*.gem
