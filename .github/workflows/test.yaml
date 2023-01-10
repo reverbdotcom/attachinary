@@ -16,6 +16,8 @@ jobs:
         gem install bundler
         bundle install --jobs 4 --retry 3
         cp spec/dummy/config/cloudinary.yml.example spec/dummy/config/cloudinary.yml
+        sed -i s/API_KEY/${{ secrets.CLOUDINARY_DEV_API_KEY }}/g spec/dummy/config/cloudinary.yml
+        sed -i s/API_SECRET/${{ secrets.CLOUDINARY_DEV_API_SECRET }}/g spec/dummy/config/cloudinary.yml
         bundle exec rake spec
         gem build attachinary.gemspec
     - name: Publish gem to Github Packages

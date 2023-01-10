@@ -4,9 +4,9 @@ default: &default
   cdn_subdomain: true
   secure_distribution: false
   private_cdn: false
-  cloud_name: zogash
-  api_key: 'xxx'
-  api_secret: xxx
+  cloud_name: reverb-dev
+  api_key: API_KEY
+  api_secret: API_SECRET
 
 development:
   <<: *default
