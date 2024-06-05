@@ -1,4 +1,4 @@
-name: Run Tests
+name: Run Tests and Publish
 
 on: [push]
 
@@ -21,3 +21,22 @@ jobs:
         sed -i s/API_SECRET/${{ secrets.CLOUDINARY_DEV_API_SECRET }}/g spec/dummy/config/cloudinary.yml
         bundle exec rake spec
         gem build attachinary.gemspec
+    - name: Publish gem
+      if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+      run: |
+        bundle config rubygems.pkg.github.com reverb-deploy-bot:${{ secrets.GITHUB_TOKEN }}
+        bundle config set frozen true
+        bundle install
+        CURRENT_VERSION=$(bundle info attachinary --version)
+        set +e
+        mkdir -p ~/.gem
+        echo -e "---\n:github: Bearer ${{ secrets.PACKAGE_PULL_TOKEN }}" >> ~/.gem/credentials
+        VERSION_MATCH=$(gem search attachinary -s https://${{ secrets.GITHUB_TOKEN }}@rubygems.pkg.github.com/reverbdotcom | grep -c $CURRENT_VERSION)
+        set -e
+        if [ $VERSION_MATCH -ne 0 ]; then
+          echo "Version already exists! No need to publish"
+          exit 0
+        fi
+        gem build attachinary.gemspec
+        chmod 0600 ~/.gem/credentials
+        gem push --key github --host https://rubygems.pkg.github.com/reverbdotcom attachinary*.gem
