@@ -4,7 +4,7 @@ default: &default
   cdn_subdomain: true
   secure_distribution: false
   private_cdn: false
-  cloud_name: reverb-dev
+  cloud_name: CLOUD_NAME
   api_key: API_KEY
   api_secret: API_SECRET
 

@@ -7,8 +7,10 @@ gemspec
 
 # used by the dummy application
 gem 'jquery-rails'
-gem 'cloudinary', '1.22.0' # same version used in reverb core
+gem 'cloudinary', '1.29.0' # same version used in reverb core
 gem 'simple_form'
+gem "webrick", "~> 1.8"
+gem "sprockets-rails", "~> 3.4"
 
 group :assets do
   gem 'coffee-rails'
