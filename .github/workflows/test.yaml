@@ -22,7 +22,7 @@ jobs:
         bundle exec rake spec
         gem build attachinary.gemspec
     - name: Publish gem
-      if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+      if: github.event_name == 'push'
       run: |
         bundle config rubygems.pkg.github.com reverb-deploy-bot:${{ secrets.GITHUB_TOKEN }}
         bundle config set frozen true
