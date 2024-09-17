@@ -17,7 +17,7 @@ group :assets do
 end
 
 group :mongoid do
-  gem 'mongoid'
+  gem 'mongoid', git: 'https://github.com/mongodb/mongoid.git', branch: 'master'
 end
 
 group :test do
@@ -25,6 +25,7 @@ group :test do
   # Using a ref until a new gem version is available due to this issue: https://github.com/twalpole/apparition/issues/81
   # Same version used in reverb core
   gem "apparition", git: 'https://github.com/twalpole/apparition', ref: 'ca86be4d54af835d531dbcd2b86e7b2c77f85f34'
+  gem 'factory_bot_rails', git: 'https://github.com/RajRoR/factory_bot_rails.git', branch: 'main'
 end
 
 

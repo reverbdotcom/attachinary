@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20120608104143) do
+ActiveRecord::Schema[7.2].define(version: 20120608104143) do
 
   create_table "attachinary_files", force: :cascade do |t|
     t.integer  "attachinariable_id"
