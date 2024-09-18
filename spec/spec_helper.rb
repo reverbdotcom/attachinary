@@ -11,7 +11,7 @@ require 'rspec/rails'
 require 'valid_attribute'
 require 'capybara/rspec'
 
-require 'factory_girl'
+require 'factory_bot'
 require 'factories'
 
 require 'database_cleaner'
@@ -36,7 +36,7 @@ RSpec.configure do |config|
   config.run_all_when_everything_filtered = true
 
   config.use_transactional_fixtures = false
-  config.include FactoryGirl::Syntax::Methods
+  config.include FactoryBot::Syntax::Methods
   config.include RequestHelpers, type: :feature
 
   config.before(:suite) do

@@ -1,4 +1,4 @@
-class CreateAttachinaryTables < ActiveRecord::Migration
+class CreateAttachinaryTables < ActiveRecord::Migration[7.2]
   def change
     create_table :attachinary_files do |t|
       t.references :attachinariable, polymorphic: true
