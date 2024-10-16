@@ -1,6 +1,7 @@
 .bundle/
 .DS_Store
 log/*.log
+.byebug_history
 pkg/
 spec/dummy/db/*.sqlite3
 spec/dummy/log/*.log
