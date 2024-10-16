@@ -325,7 +325,7 @@ GEM
       concurrent-ruby (~> 1.0)
     useragent (0.16.10)
     valid_attribute (2.0.0)
-    webrick (1.8.1)
+    webrick (1.8.2)
     websocket-driver (0.7.6)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
