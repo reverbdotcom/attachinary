@@ -24,10 +24,10 @@ Gem::Specification.new do |s|
   s.files = Dir["{app,config,db,lib,vendor}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.md"]
   s.test_files = Dir["test/**/*"]
 
-  s.add_dependency 'rails', '~> 7.2.1'
+  s.add_dependency 'rails', '>= 7.2.1', '< 8.1'
   s.add_dependency 'cloudinary'
 
-  s.add_development_dependency 'sqlite3'
+  s.add_development_dependency 'sqlite3', '~> 2.1'
   s.add_development_dependency 'rspec-rails'
   s.add_development_dependency 'valid_attribute'
   s.add_development_dependency 'capybara'
