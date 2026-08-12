@@ -17,11 +17,9 @@ group :assets do
 end
 
 group :mongoid do
-  # mongoid's latest release version i.e. 9.0.1 doesn't support Rails 7.2 yet.
-  # However, they have code in their master branch which is supporting Rails 7.2,
-  # therefore, using the specific reference here until we get a clean release from them.
-  # Cleanup ticket: https://reverb.atlassian.net/browse/PLAT-2225
-  gem 'mongoid', github: 'mongodb/mongoid', ref: 'a79e90cb67b8a5865e99a1c6d7cb11e0d7591e7c'
+  # Released 9.0.4+ allow activemodel >= 5.1, < 8.2, so the git ref that PLAT-2225
+  # tracked (pinned at activemodel < 7.3) is no longer needed.
+  gem 'mongoid', '~> 9.1'
 end
 
 group :test do
@@ -29,8 +27,8 @@ group :test do
   # Using a ref until a new gem version is available due to this issue: https://github.com/twalpole/apparition/issues/81
   # Same version used in reverb core
   gem "apparition", git: 'https://github.com/twalpole/apparition', ref: 'ca86be4d54af835d531dbcd2b86e7b2c77f85f34'
-  # Cleanup ticket: https://reverb.atlassian.net/browse/PLAT-2226
-  gem 'factory_bot_rails', github: 'thoughtbot/factory_bot_rails', ref: 'refs/pull/495/head'
+  # 6.5.1 carries the PR that PLAT-2226's git ref tracked; released gem needs only railties >= 6.1.0
+  gem 'factory_bot_rails', '>= 6.5.1'
 end
 
 # Declare any dependencies that are still in development here instead of in
