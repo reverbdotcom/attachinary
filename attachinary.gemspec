@@ -12,6 +12,7 @@ Gem::Specification.new do |s|
   s.homepage    = ""
   s.summary     = "attachinary-#{s.version}"
   s.description = "Attachments handler for Rails that uses Cloudinary for storage."
+  s.required_ruby_version = '>= 3.2'
 
   if s.respond_to?(:metadata)
     s.metadata["allowed_push_host"] = "https://rubygems.pkg.github.com"
