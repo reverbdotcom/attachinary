@@ -27,6 +27,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'rails', '>= 7.2.1', '< 8.1'
   s.add_dependency 'cloudinary'
+  s.add_dependency 'ostruct' # cloudinary 1.x requires it without declaring it; bundled gem since Ruby 4.0
 
   s.add_development_dependency 'sqlite3', '~> 2.1'
   s.add_development_dependency 'rspec-rails'

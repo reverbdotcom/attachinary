@@ -12,6 +12,7 @@ PATH
   specs:
     attachinary (1.3.0.19)
       cloudinary
+      ostruct
       rails (>= 7.2.1, < 8.1)
 
 GEM
@@ -359,7 +360,6 @@ DEPENDENCIES
   jquery-rails
   launchy
   mongoid (~> 9.1)
-  ostruct
   rb-fsevent (~> 0.9.1)
   rspec-rails
   simple_form

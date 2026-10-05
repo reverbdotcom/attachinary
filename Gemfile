@@ -11,7 +11,6 @@ gem 'cloudinary', '1.29.0' # same version used in reverb core
 gem 'simple_form'
 gem "webrick", "~> 1.8"
 gem "sprockets-rails", "~> 3.4"
-gem 'ostruct' # cloudinary requires it; no longer a default gem in Ruby 4.0
 
 group :assets do
   gem 'coffee-rails'
