@@ -20,7 +20,7 @@ namespace :attachinary do
       puts "Getting #{filename}"
 
       dest = File.open(dir.join(filename), "w")
-      dest.puts open(url).read
+      dest.puts URI.open(url).read
       dest.close
     end
   end

@@ -12,6 +12,7 @@ Gem::Specification.new do |s|
   s.homepage    = ""
   s.summary     = "attachinary-#{s.version}"
   s.description = "Attachments handler for Rails that uses Cloudinary for storage."
+  s.required_ruby_version = '>= 3.2'
 
   if s.respond_to?(:metadata)
     s.metadata["allowed_push_host"] = "https://rubygems.pkg.github.com"
@@ -26,6 +27,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'rails', '>= 7.2.1', '< 8.1'
   s.add_dependency 'cloudinary'
+  s.add_dependency 'ostruct' # cloudinary 1.x requires it without declaring it; bundled gem since Ruby 4.0
 
   s.add_development_dependency 'sqlite3', '~> 2.1'
   s.add_development_dependency 'rspec-rails'
