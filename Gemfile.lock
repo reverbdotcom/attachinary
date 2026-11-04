@@ -10,7 +10,7 @@ GIT
 PATH
   remote: .
   specs:
-    attachinary (1.3.0.19)
+    attachinary (1.3.0.20)
       cloudinary
       ostruct
       rails (>= 7.2.1, < 8.1)
